@@ -4,21 +4,21 @@ const Book = require("../models/books");
 
 //POST : Create a new book
 router.post("/", (req, res) => {
-  book = new Book({
-    name: req.body.bookName,
-    author: {
-      name: req.body.authorName,
-      age: req.body.authorAge,
-    },
+  const books = new Book({
+    name: req.body.name,
+    // author: {
+    //   name: req.body.authorName,
+    //   age: req.body.authorAge,
+    // },
     genre: req.body.genre,
   });
-  book
+  books
     .save()
     .then((book) => {
       res.send(book);
     })
     .catch((err) => {
-      res.status(500).send("Book was not created successfully...");
+      res.status(500).send(err);
     });
 });
 

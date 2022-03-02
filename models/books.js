@@ -7,7 +7,7 @@ const bookSchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 20,
   },
-  author: Author.schema,
+  // author: Author.schema,
   genre: {
     type: String,
     required: true,
